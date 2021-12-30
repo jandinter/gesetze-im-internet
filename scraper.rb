@@ -80,11 +80,9 @@ begin
         path_name = File.join(Pathname.getwd,
                               DOWNLOAD_FOLDER,
                               item.short_name)
-        file_name_with_path = File.join(path_name,
-                                        "#{item.short_name}.xml")
-        puts file_name_with_path
-
         Dir.mkdir(path_name) unless Dir.exist?(path_name)
+
+        puts item.short_name
 
         Zip::File.open(zip_file) do |files|
           Zip.on_exists_proc = true
@@ -95,7 +93,7 @@ begin
           end
 
           xml_file = Dir.glob("#{path_name}/*.xml").first
-          File.rename(xml_file, file_name_with_path) if xml_file
+          File.rename(xml_file, File.join(path_name, "#{item.short_name}.xml")) if xml_file
           count += 1
         end
       end

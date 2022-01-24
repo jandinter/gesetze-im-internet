@@ -3,7 +3,7 @@ name: scraper
 on:
   schedule:
     - cron: '5 7 * * 3' # At 7:05am on Wednesday
-    - cron: '10 * * * *' # At 7:05am on Wednesday
+    - cron: '20 * * * *' # At 7:05am on Wednesday
 
 jobs:
   scrape-legal-acts:

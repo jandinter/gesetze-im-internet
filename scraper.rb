@@ -103,5 +103,5 @@ begin
   end
 ensure
   puts "Files saved: #{count}"
-  puts "Errors encountered: #{error_logger.all_errors.size}"
+  # puts "Errors encountered: #{error_logger.all_errors.size}"
 end

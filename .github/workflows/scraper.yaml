@@ -1,0 +1,26 @@
+name: scraper
+
+on:
+  schedule:
+    - cron: '5 7 * * 3' # At 7:05am on Wednesday
+
+jobs:
+  scrape-legal-acts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup_ruby
+        uses: ruby/setup-ruby@v1 # https://github.com/ruby/setup-ruby
+        with:
+          ruby-version: 3.0
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: run_scraper
+        run: ruby scraper.rb
+      - name: push
+        uses: actions-x/commit@v2 # https://github.com/actions-x/commit
+        with:
+          name: Scraper
+          branch: main
+          files: gesetze/*
+          message: Scraping of legal acts

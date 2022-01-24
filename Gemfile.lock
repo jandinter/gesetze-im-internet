@@ -1,0 +1,26 @@
+GEM
+  specs:
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    down (5.2.4)
+      addressable (~> 2.8)
+    nokogiri (1.13.1-x86_64-darwin)
+      racc (~> 1.4)
+    pathname (0.2.0)
+    public_suffix (4.0.6)
+    racc (1.6.0)
+    uri (0.11.0)
+    zip (2.0.2)
+
+PLATFORMS
+  x86_64-darwin-19
+
+DEPENDENCIES
+  down (~> 5.2)
+  nokogiri (~> 1.13)
+  pathname (~> 0.2.0)
+  uri (~> 0.11.0)
+  zip (~> 2.0)
+
+BUNDLED WITH
+   2.3.4

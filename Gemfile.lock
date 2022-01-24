@@ -1,14 +1,36 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     down (5.2.4)
       addressable (~> 2.8)
+    ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
+    http (5.0.4)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.4)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
     pathname (0.2.0)
     public_suffix (4.0.6)
     racc (1.6.0)
+    rake (13.0.6)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8)
     uri (0.11.0)
     zip (2.0.2)
 
@@ -17,6 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   down (~> 5.2)
+  http (~> 5.0)
   nokogiri (~> 1.13)
   pathname (~> 0.2.0)
   uri (~> 0.11.0)

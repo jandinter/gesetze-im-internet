@@ -1,5 +1,8 @@
+source "https://rubygems.org"
 
 gem "down", "~> 5.2"
+
+gem "http", "~> 5.0"
 
 gem "nokogiri", "~> 1.13"
 

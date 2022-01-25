@@ -1,4 +1,4 @@
-name: scraper1
+name: scraper2
 
 on:
   workflow_dispatch

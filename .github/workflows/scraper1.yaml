@@ -17,7 +17,8 @@ jobs:
         uses: ruby/setup-ruby@v1 # https://github.com/ruby/setup-ruby
         with:
           ruby-version: 3.0
-          run: bundle install --path:/
+          bundler-cache: 'true'
+          cache-version: '1'
 
       - name: run_scraper
         run: ruby scraper.rb
@@ -32,7 +33,7 @@ jobs:
         run: |
           # Stage the file, commit and push
           git add gesetze/*
-          git commit -m "Scraping of legal acts"
+          git commit -m 'Scraping of legal acts'
           git push origin main
       # - name: push
       #   uses: actions-x/commit@v2 # https://github.com/actions-x/commit

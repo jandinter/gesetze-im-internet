@@ -1,4 +1,4 @@
-name: scraper1
+name: scraper2
 
 on:
   workflow_dispatch
@@ -18,10 +18,10 @@ jobs:
         with:
           ruby-version: 3.0
           bundler-cache: 'true'
-          cache-version: '1'
+          cache-version: '6'
 
       - name: run_scraper
-        run: ruby scraper.rb
+        run: bundle exec ruby scraper.rb
 
       - name: setup git config
         run: |

@@ -10,4 +10,4 @@ gem "pathname", "~> 0.2.0"
 
 gem "uri", "~> 0.11.0"
 
-gem "zip", "~> 2.0"
+gem "rubyzip", "~> 2.3"

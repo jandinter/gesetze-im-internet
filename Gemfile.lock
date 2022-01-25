@@ -24,26 +24,29 @@ GEM
       rake (~> 13.0)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-linux)
+      racc (~> 1.4)
     pathname (0.2.0)
     public_suffix (4.0.6)
     racc (1.6.0)
     rake (13.0.6)
+    rubyzip (2.3.2)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
     uri (0.11.0)
-    zip (2.0.2)
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   down (~> 5.2)
   http (~> 5.0)
   nokogiri (~> 1.13)
   pathname (~> 0.2.0)
+  rubyzip (~> 2.3)
   uri (~> 0.11.0)
-  zip (~> 2.0)
 
 BUNDLED WITH
    2.3.4

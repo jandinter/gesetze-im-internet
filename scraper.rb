@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-puts $LOAD_PATH
-
 require 'down/http'
 require 'nokogiri'
 require 'pathname'
@@ -24,12 +22,10 @@ class Toc
     .search('items', 'item')
     .select { |item| !item.at_xpath('link').nil? && !item.at_xpath('title').nil? }
     .map do |item|
-     TocEntry.new(name: item.at_xpath('title').content,
+      TocEntry.new(name: item.at_xpath('title').content,
       uri: item.at_xpath('link').content)
-   end
-
-   puts @entries.count
- end
+    end
+  end
 end
 
 class TocEntry
@@ -51,11 +47,11 @@ end
 
 class ErrorLogger
   def intialize
-    @log_items = []
+    @log_items = Array.new
   end
 
   def log (e, toc_entry)
-    @log_items << {error: e, toc_entry: toc_entry}
+    @log_items.push({error: e, toc_entry: toc_entry})
   end
 
   def all_errors
@@ -71,7 +67,7 @@ begin
   count = 1
   error_logger = ErrorLogger.new
   http = Down::Http.new do |client|
-    client.timeout(connect: 5, read: 3)
+    client.timeout(connect: 10, read: 5)
     client.persistent(HOST_NAME_FOR_DOWNLOADS)
   end
   toc.entries.each do |item|
@@ -94,8 +90,10 @@ begin
           end
 
           xml_file = Dir.glob("#{path_name}/*.xml").first
-          File.rename(xml_file, File.join(path_name, "#{item.short_name}.xml")) if xml_file
-          count += 1
+          if xml_file
+            File.rename(xml_file, File.join(path_name, "#{item.short_name}.xml"))
+            count += 1
+          end
         end
       end
     rescue Down::Error, Zip::Error => e
@@ -103,6 +101,6 @@ begin
     end
   end
 ensure
-  puts "Files saved: #{count}"
-  # puts "Errors encountered: #{error_logger.all_errors.size}"
+  puts "Files processed: #{count}"
+  # puts "Errors encountered: #{error_logger.all_errors.count}"
 end

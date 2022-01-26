@@ -1,9 +1,9 @@
 name: scraper
 
 on:
+  # workflow_dispatch
   schedule:
-    - cron: '5 7 * * 3' # At 7:05am on Wednesday
-    - cron: '5 7 * * *' # At 7:05am every day
+    - cron: '25 7 * * 3' # At 7:25am on Wednesday
 
 jobs:
   scrape-legal-acts:
@@ -16,22 +16,23 @@ jobs:
         uses: ruby/setup-ruby@v1 # https://github.com/ruby/setup-ruby
         with:
           ruby-version: 3.0
-          run: bundle install
+          bundler-cache: 'true'
+          cache-version: '6'
 
       - name: run_scraper
-        run: ruby scraper.rb
+        run: bundle exec ruby scraper.rb
 
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "Scraper"
+          git config user.name "Robot Scraper"
           git config user.email "<>"
 
       - name: commit
         run: |
           # Stage the file, commit and push
           git add gesetze/*
-          git commit -m "Scraping of legal acts"
+          git commit -m 'Scraping of legal acts'
           git push origin main
       # - name: push
       #   uses: actions-x/commit@v2 # https://github.com/actions-x/commit

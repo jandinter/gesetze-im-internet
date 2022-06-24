@@ -18,7 +18,7 @@ Die Gesetzestexte werden einmal wöchentlich mit einem [Scraper](/scraper.rb) ab
 
 Die Gesetzestexte werden als XML-Dateien heruntergeladen (mehr zu dem verwendeten Dateiformat [hier](https://www.gesetze-im-internet.de/hinweise.html)).
 
-Die XML-Dateien liegen im Verzeichnis [gesetze](/gesetze). Die Namen der Unterverzeichnisse orientieren sich an den offiziellen Abkürzungen der Gesetzes- bzw- Verordnungstitel.
+Die XML-Dateien liegen im Verzeichnis [gesetze](/gesetze). Die Namen der Unterverzeichnisse orientieren sich an den offiziellen Abkürzungen der Gesetzes- bzw. Verordnungstitel.
 
 # English version
 

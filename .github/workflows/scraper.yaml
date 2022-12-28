@@ -1,9 +1,9 @@
 name: weekly_scraper
 
 on:
-  # workflow_dispatch
   schedule:
     - cron: '25 7 * * 3' # At 7:25am on Wednesday
+  workflow_dispatch:
 
 jobs:
   scrape-legal-acts:

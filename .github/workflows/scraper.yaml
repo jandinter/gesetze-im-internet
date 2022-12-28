@@ -1,23 +1,23 @@
 name: weekly_scraper
 
 on:
-  # workflow_dispatch
   schedule:
     - cron: '25 7 * * 3' # At 7:25am on Wednesday
+  workflow_dispatch:
 
 jobs:
   scrape-legal-acts:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # https://github.com/actions/checkout
 
       - name: setup_ruby
         uses: ruby/setup-ruby@v1 # https://github.com/ruby/setup-ruby
         with:
-          ruby-version: 3.0
-          bundler-cache: 'true'
-          cache-version: '6'
+          ruby-version: '3.1'
+          bundler-cache: true
+          cache-version: 7
 
       - name: run_scraper
         run: bundle exec ruby scraper.rb

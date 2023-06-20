@@ -7,7 +7,7 @@ require 'uri'
 require 'zip'
 
 TOC_PATH = 'https://www.gesetze-im-internet.de/gii-toc.xml'
-HOST_NAME_FOR_DOWNLOADS = 'http://www.gesetze-im-internet.de' # http, not https!
+HOST_NAME_FOR_DOWNLOADS = 'https://www.gesetze-im-internet.de' # http, not https!
 MAX_SIZE_FOR_FILES = 30 * 1024**2 # in MiB
 DOWNLOAD_FOLDER = 'gesetze'
 

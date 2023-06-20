@@ -68,7 +68,6 @@ begin
   error_logger = ErrorLogger.new
   http = Down::Http.new do |client|
     client.timeout(connect: 10, read: 5)
-    client.persistent(HOST_NAME_FOR_DOWNLOADS)
   end
   toc.entries.each do |item|
     begin
